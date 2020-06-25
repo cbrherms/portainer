@@ -347,18 +347,6 @@ angular.module('portainer.app', []).config([
           controller: 'StacksController',
         },
       },
-      resolve: {
-        endpointID: [
-          'EndpointProvider',
-          '$state',
-          function (EndpointProvider, $state) {
-            var id = EndpointProvider.endpointID();
-            if (!id) {
-              return $state.go('portainer.home');
-            }
-          },
-        ],
-      },
     };
 
     var stack = {
@@ -465,19 +453,7 @@ angular.module('portainer.app', []).config([
 
     var templates = {
       name: 'portainer.templates',
-      url: '/templates',
-      resolve: {
-        endpointID: [
-          'EndpointProvider',
-          '$state',
-          function (EndpointProvider, $state) {
-            var id = EndpointProvider.endpointID();
-            if (!id) {
-              return $state.go('portainer.home');
-            }
-          },
-        ],
-      },
+      url: '/:endpointId/templates',
       views: {
         'content@': {
           templateUrl: './views/templates/templates.html',
