@@ -340,7 +340,7 @@ angular.module('portainer.app', []).config([
 
     var stacks = {
       name: 'portainer.stacks',
-      url: '/stacks',
+      url: '/:endpointId/stacks',
       views: {
         'content@': {
           templateUrl: './views/stacks/stacks.html',
